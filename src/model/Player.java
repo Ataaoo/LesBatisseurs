@@ -14,6 +14,8 @@ public abstract class Player {
 	 * @param aName : the player's name
 	 */
 	public Player(String aName) {
+		if(aName != null) this.name = aName;
+		else System.out.println("Player : constructor : the name is missing");
 	}
 
 	/**

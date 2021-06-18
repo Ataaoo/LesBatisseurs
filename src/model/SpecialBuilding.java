@@ -21,6 +21,17 @@ public class SpecialBuilding extends Building {
 	 */
 	public SpecialBuilding(String aName, int aStone, int aTile, int aWood, int aKnowledge, int aCoinReward, int aStoneProduced, int aTileProduced, int aWoodProduced, int aKnowledgeProduced) {
 		super(aName,aStone,aTile,aWood,aKnowledge,aCoinReward);
+		if(aStoneProduced >=0) this.stoneProduced = aStoneProduced;
+		else System.out.println("SpecialBuilding : Constructor : wrong value for stoneProduced");
+
+		if(aWoodProduced >=0) this.woodProduced = aStoneProduced;
+		else System.out.println("SpecialBuilding : Constructor : wrong value for woodProduced");
+
+		if(aTileProduced >=0) this.tileProduced = aStoneProduced;
+		else System.out.println("SpecialBuilding : Constructor : wrong value for tileProduced");
+
+		if(aKnowledgeProduced >=0) this.knowledgeProduced = aStoneProduced;
+		else System.out.println("SpecialBuilding : Constructor : wrong value for knowledgeProduced");
 	}
 
 	/**
@@ -32,10 +43,12 @@ public class SpecialBuilding extends Building {
 	}
 
 	/**
-	 * Stest the produced stone amount
+	 * Sets the produced stone amount
 	 * @param value : the new produced stone amount
 	 */
 	public void setStoneProduced(int value) {
+		if(value >= 0) this.stoneProduced = value;
+		else System.out.println("SpecialBuilding : setStoneProduced : wrong value");
 	}
 
 	/**
@@ -51,6 +64,8 @@ public class SpecialBuilding extends Building {
 	 * @param value : the new produced tile amount
 	 */
 	public void setTileProduced(int value) {
+		if(value >= 0) this.tileProduced = value;
+		else System.out.println("SpecialBuilding : setTileProduced : wrong value");
 	}
 
 	/**
@@ -66,6 +81,8 @@ public class SpecialBuilding extends Building {
 	 * @param value : the new produced wood amount
 	 */
 	public void setWoodProduced(int value) {
+		if(value >= 0) this.woodProduced = value;
+		else System.out.println("SpecialBuilding : setWoodProduced : wrong value");
 	}
 
 	/**
@@ -81,5 +98,7 @@ public class SpecialBuilding extends Building {
 	 * @param value : the new produced knowledge amount
 	 */
 	public void setKnowledgeProduced(int value) {
+		if(value >= 0) this.knowledgeProduced = value;
+		else System.out.println("SpecialBuilding : setKnowledgeProduced : wrong value");
 	}
 }

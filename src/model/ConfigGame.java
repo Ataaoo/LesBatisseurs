@@ -41,6 +41,7 @@ public class ConfigGame {
 	 * Start a menu to get all the information : create a new game or load another one, how many player if it's a new game
 	 */
 	public void startMenu(){
+
 	}
 
 	/**

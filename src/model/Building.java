@@ -19,6 +19,21 @@ public class Building extends Card {
 	 */
 	public Building(String aName, int aStone, int aTile, int aWood, int aKnowledge, int aCoinReward) {
 		super(aName);
+
+		if(aWood >=0) this.stoneCost = aStone;
+		else System.out.println("Building : Constructor : wrong value for stoneCost");
+
+		if(aWood >=0) this.woodCost = aWood;
+		else System.out.println("Building : Constructor : wrong value for woodCost");
+
+		if(aKnowledge >=0) this.knowledgeCost = aKnowledge;
+		else System.out.println("Building : Constructor : wrong value for knowledgeCost");
+
+		if(aTile >=0) this.knowledgeCost = aKnowledge;
+		else System.out.println("Building : Constructor : wrong value for knowledgeCost");
+
+		if(aCoinReward >=0) this.coinReward = aCoinReward;
+		else System.out.println("Building : Constructor : wrong value for coinReward");
 	}
 
 	/**
@@ -50,7 +65,9 @@ public class Building extends Card {
 	 * @param coinReward : the new coin reward
 	 */
 	public void setCoinReward(int coinReward) {
-		this.coinReward = coinReward;
+
+		if(coinReward >= 0)this.coinReward = coinReward;
+		else System.out.println("Building : setCoinReward : wrong value");
 	}
 
 	/**
@@ -66,7 +83,8 @@ public class Building extends Card {
 	 * @param stoneCost : the new stone cost
 	 */
 	public void setStoneCost(int stoneCost) {
-		this.stoneCost = stoneCost;
+		if(stoneCost >= 0)this.stoneCost = stoneCost;
+		else System.out.println("Building : setStoneCost : wrong value");
 	}
 
 	/**
@@ -82,7 +100,8 @@ public class Building extends Card {
 	 * @param woodCost : the new wood cost
 	 */
 	public void setWoodCost(int woodCost) {
-		this.woodCost = woodCost;
+		if(woodCost >= 0)this.woodCost = woodCost;
+		else System.out.println("Building : setWoodCost : wrong value");
 	}
 
 	/**
@@ -98,7 +117,8 @@ public class Building extends Card {
 	 * @param tileCost : the new tile cost
 	 */
 	public void setTileCost(int tileCost) {
-		this.tileCost = tileCost;
+		if(tileCost >= 0)this.tileCost = tileCost;
+		else System.out.println("Building : setTileCost : wrong value");
 	}
 
 	/**
@@ -114,6 +134,7 @@ public class Building extends Card {
 	 * @param knowledgeCost : the new knowledge cost
 	 */
 	public void setKnowledgeCost(int knowledgeCost) {
-		this.knowledgeCost = knowledgeCost;
+		if(knowledgeCost >= 0)this.knowledgeCost = knowledgeCost;
+		else System.out.println("Building : setKnowledgeCost : wrong value");
 	}
 }

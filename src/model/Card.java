@@ -10,6 +10,8 @@ public abstract class Card {
 	 * @param name
 	 */
 	public Card(String name) {
+		if (name != null) this.name = name;
+		else System.out.println("Card : Constructor : Wrong name");
 	}
 
 	/**
@@ -19,8 +21,8 @@ public abstract class Card {
 	}
 
 	/**
-	 * Return's a String that contains all the usefull informations about Card
-	 * @return : the String that contains all the usefull informations about card
+	 * Return's a String that contains all the useful information about Card
+	 * @return : the String that contains all the useful information about card
 	 */
 	public String toString() {
 		return "toString of Card";

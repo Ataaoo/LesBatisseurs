@@ -1,7 +1,7 @@
 package model;
 
 public class Game {
-	private ConfigGame _gameplay;
+	private ConfigGame gameplay;
 	private Player player1;
 	private Player player2;
 	private Player player3;
@@ -16,7 +16,7 @@ public class Game {
 	 * @param aName2 : the player2's name
 	 * @param aName3 : the player3's name
 	 * @param aName4 : the player4's name
-	 * @param aBoard : the gmae's board
+	 * @param aBoard : the game's board
 	 * @param aMode : the gamemode
 	 */
 	public Game(String aName1, String aName2, String aName3, String aName4, Board aBoard, Mode aMode) {
@@ -73,7 +73,7 @@ public class Game {
 	 * @param aName4 : the player4's name
 	 * @param aBoard : the game's board
 	 */
-	private void createPlayers(String aName1, String aName2, String aName3, String aName4, Object aBoard) {
+	private void createPlayers(String aName1, String aName2, String aName3, String aName4, Object aBoard){
 	}
 
 }
