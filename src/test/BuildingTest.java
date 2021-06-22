@@ -10,7 +10,7 @@ public class BuildingTest {
 
     @Before
     public void setUp(){
-        building = new Building("Building 1",2,2,2,2,2);
+        building = new Building("Building 1",2,2,2,2,2,2);
     }
 
     @After

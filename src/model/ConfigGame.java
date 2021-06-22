@@ -1,26 +1,28 @@
 package model;
 
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.Scanner;
+
 public class ConfigGame {
 
 	private Game gameplay;
-	private String name1;
-	private String name2;
-	private String name3;
-	private String name4;
 	private Board board;
 	private Mode mode;
+	private String fileBat = "data/rowData/batiments.txt";
+	private String fileWorkers = "data/rowData/ouvriers.txt";
+	private String fileSpecialBuildings = "data/rowData/machines.txt";
 
 	/**
 	 * The ConfigGame's constructor
 	 */
-	public ConfigGame(){
+	public ConfigGame() throws IOException {
+		Scanner scan = new Scanner(System.in);
+		startMenu(scan);
 	}
 
-	/**
-	 * Configure the game from the value got in StartMenu
-	 */
-	public void configure() {
-	}
 
 	/**
 	 * Return's a String that contains all the usefull informations about ConfigGame
@@ -32,111 +34,178 @@ public class ConfigGame {
 
 	/**
 	 * Loads information from a save file serialized
-	 * @param filePath : the path to the file
 	 */
-	public void load(String filePath){
+	public void load(int nbGame){
+		String path = "data/save/save"+nbGame+"/Game.txt";
+		ObjectInputStream OIS = null;
+		try {
+			OIS = new ObjectInputStream(new FileInputStream(path));
+			this.gameplay = (Game)(OIS.readObject());
+			this.gameplay.start();
+			OIS.close();
+		} catch (IOException | ClassNotFoundException e) {
+			System.err.println("load(path) - Error : " + e.getMessage());
+		}
 	}
+
 
 	/**
 	 * Start a menu to get all the information : create a new game or load another one, how many player if it's a new game
 	 */
-	public void startMenu(){
+	public void startMenu(Scanner scan) throws IOException {
+		System.out.println("Welcome to \"Les Bâtisseurs : Moyen-Âge \"");
+		System.out.println("Voulez-vous :\n" +
+						   "1] Lancer une nouvelle partie\n" +
+						   "2] Charger une nouvelle partie\n" +
+						   "3] Voir les règles\n" +
+						   "4] Quitter le jeu\n" +
+						   "Veuillez entrer le numéro de votre choix");
+
+
+		int choice = scan.nextInt();
+		while(choice >4 || choice <1){
+			System.out.println("Please select a right option");
+			choice = scan.nextInt();
+		}
+
+		switch(choice) {
+			case 1:
+				createGame(scan);
+			case 2:
+				System.out.println("Which party do you want to load ?");
+				System.out.println("\n\nThe party n°1");
+				Scanner loadScan = new Scanner(new FileReader("data/save/save1/partyInformations.txt"));
+				while(loadScan.hasNextLine()){
+					System.out.println(loadScan.nextLine());
+				}
+
+				System.out.println("\n\nThe party n°2");
+				loadScan = new Scanner(new FileReader("data/save/save2/partyInformations.txt"));
+				while(loadScan.hasNextLine()){
+					System.out.println(loadScan.nextLine());
+				}
+
+				System.out.println("\n\nThe party n°3");
+				loadScan = new Scanner(new FileReader("data/save/save3/partyInformations.txt"));
+				while(loadScan.hasNextLine()){
+					System.out.println(loadScan.nextLine());
+				}
+
+				int nbParty = scan.nextInt();
+				while(nbParty> 3 || nbParty<0){
+					System.out.println("Please select a right option");
+					nbParty = scan.nextInt();
+				}
+
+				load(nbParty);
+				break;
+			case 3:
+				System.out.println("Here are the gamerules : \n https://studiobombyx.com/assets/LES-BATISSEURS_MOYEN-AGE_rulebook_FR.pdf");
+				break;
+			case 4 :
+				System.out.println("A bientôt !");
+				break;
+		}
+
 
 	}
 
-	/**
-	 * Gets the player1's name
-	 * @return : the player1's name
-	 */
-	public String getName1() {
-		return name1;
-	}
+	private void createGame(Scanner scan) throws IOException {
+		System.out.println("Let's create a game !\n" +
+						   "How many players ? Choose an option between 1 and 12\n" +
+						   "1] 1 Computer and 1 Human\n" +
+						   "2] 1 Computer and 2 Humans\n" +
+						   "3] 1 Computer and 3 Humans\n" +
+						   "4] 2 Computers\n" +
+						   "5] 2 Computers and 1 Human\n" +
+						   "6] 2 Computers and 2 Humans\n" +
+						   "7] 3 Computers\n" +
+						   "8] 3 Computers and 1 Human\n" +
+						   "9] 4 Computers\n" +
+						   "10] 2 Humans\n" +
+						   "11] 3 Humans\n" +
+						   "12] 4 Humans");
+		int t = scan.nextInt();
+		while(t >12 || t < 1){
+			System.out.println("Please select a correct value");
+			t=scan.nextInt();
+		}
+		switch (t){
+			case 1:
+				System.out.println("What is the player1's name ?");
+				String name = scan.next();
+				this.gameplay = new Game(null,name,null,null,new Board(fileBat,fileWorkers,fileSpecialBuildings),Mode.AH);
+				break;
+			case 2:
+				System.out.println("What is the player1's name ?");
+				name = scan.next();
+				System.out.println("What is the player2's name ?");
+				String name2 = scan.next();
+				this.gameplay = new Game(null,name,name2,null,new Board(fileBat,fileWorkers,fileSpecialBuildings),Mode.AHH);
+				break;
+			case 3:
+				System.out.println("What is the player1's name ?");
+				name = scan.next();
+				System.out.println("What is the player2's name ?");
+				name2 = scan.next();
+				System.out.println("What is the player3's name ?");
+				String name3 = scan.next();
+				this.gameplay = new Game(null,name,name2,name3,new Board(fileBat,fileWorkers,fileSpecialBuildings),Mode.AHHH);
+				break;
+			case 4:
+				this.gameplay = new Game(null,null,null,null,new Board(fileBat,fileWorkers,fileSpecialBuildings),Mode.AA);
+				break;
+			case 5:
+				System.out.println("What is the player1's name ?");
+				name = scan.next();
+				this.gameplay = new Game(null,null,name,null,new Board(fileBat,fileWorkers,fileSpecialBuildings),Mode.AAH);
+				break;
+			case 6:
+				System.out.println("What is the player1's name ?");
+				name = scan.next();
+				System.out.println("What is the player2's name ?");
+				name2 = scan.next();
+				this.gameplay = new Game(null,null,name,name2,new Board(fileBat,fileWorkers,fileSpecialBuildings),Mode.AAHH);
+				break;
+			case 7:
+				this.gameplay = new Game(null,null,null,null,new Board(fileBat,fileWorkers,fileSpecialBuildings),Mode.AAA);
+				break;
+			case 8:
+				System.out.println("What is the player1's name ?");
+				name = scan.next();
+				this.gameplay = new Game(null,null,null,name,new Board(fileBat,fileWorkers,fileSpecialBuildings),Mode.AAAH);
+				break;
+			case 9:
+				this.gameplay = new Game(null,null,null,null,new Board(fileBat,fileWorkers,fileSpecialBuildings),Mode.AAAA);
+				break;
+			case 10:
+				System.out.println("What is the player1's name ?");
+				name = scan.next();
+				System.out.println("What is the player2's name ?");
+				name2 = scan.next();
+				this.gameplay = new Game(name,name2,null,null,new Board(fileBat,fileWorkers,fileSpecialBuildings),Mode.HH);
+				break;
+			case 11 :
+				System.out.println("What is the player1's name ?");
+				name = scan.next();
+				System.out.println("What is the player2's name ?");
+				name2 = scan.next();
+				System.out.println("What is the player3's name ?");
+				name3 = scan.next();
+				this.gameplay = new Game(name,name2,name3,null,new Board(fileBat,fileWorkers,fileSpecialBuildings),Mode.HHH);
+				break;
+			case 12:
+				System.out.println("What is the player1's name ?");
+				name = scan.next();
+				System.out.println("What is the player2's name ?");
+				name2 = scan.next();
+				System.out.println("What is the player3's name ?");
+				name3 = scan.next();
+				System.out.println("What is the player4's name ?");
+				String name4 = scan.next();
+				this.gameplay = new Game(name,name2,name3,name4,new Board(fileBat,fileWorkers,fileSpecialBuildings),Mode.HHHH);
+				break;
+		}
 
-	/**
-	 * Sets the player1's name
-	 * @param name1 : the new player1's name
-	 */
-	public void setName1(String name1) {
-		this.name1 = name1;
-	}
-
-	/**
-	 * Gets the player2's name
-	 * @return : the player2's name
-	 */
-	public String getName2() {
-		return name2;
-	}
-
-	/**
-	 * Sets the player2's name
-	 * @param name2 : the new player2's name
-	 */
-	public void setName2(String name2) {
-		this.name2 = name2;
-	}
-
-	/**
-	 * Gets the player3's name
-	 * @return : the player3's name
-	 */
-	public String getName3() {
-		return name3;
-	}
-
-	/**
-	 * Sets the player3's name
-	 * @param name3 : the new player3's name
-	 */
-	public void setName3(String name3) {
-		this.name3 = name3;
-	}
-
-	/**
-	 * Gets the player4's name
-	 * @return : the player4's name
-	 */
-	public String getName4() {
-		return name4;
-	}
-
-	/**
-	 * Sets the player4's name
-	 * @param name4 : the new player4's name
-	 */
-	public void setName4(String name4) {
-		this.name4 = name4;
-	}
-
-	/**
-	 * Gets the Game's Board
-	 * @return : the game's board
-	 */
-	public Board getBoard() {
-		return board;
-	}
-
-	/**
-	 * Sets the game's baord
-	 * @param board : the new game's board
-	 */
-	public void setBoard(Board board) {
-		this.board = board;
-	}
-
-	/**
-	 * gets the gamemode
-	 * @return : the new gamemode
-	 */
-	public Mode getMode() {
-		return mode;
-	}
-
-	/**
-	 * Sets the gamemode
-	 * @param mode : the new gamemode
-	 */
-	public void setMode(Mode mode) {
-		this.mode = mode;
 	}
 }

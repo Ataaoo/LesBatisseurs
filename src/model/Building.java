@@ -1,12 +1,17 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Building extends Card {
 	private int coinReward;
 	private int stoneCost;
 	private int woodCost;
 	private int tileCost;
 	private int knowledgeCost;
-	private boolean isFinished;
+	private int victoryPoints;
+	private boolean isFinished = false;
+	private ArrayList<Worker> workers;
+	private ArrayList<SpecialBuilding> specialBuildings;
 
 	/**
 	 * The Building's constructor
@@ -17,9 +22,10 @@ public class Building extends Card {
 	 * @param aKnowledge : the Building's knowledge
 	 * @param aCoinReward : the Building's coin reward
 	 */
-	public Building(String aName, int aStone, int aTile, int aWood, int aKnowledge, int aCoinReward) {
+	public Building(String aName,int aCoinReward,  int victoryPoints, int aStone,int aWood,  int aKnowledge, int aTile) {
 		super(aName);
-
+		workers = new ArrayList<>();
+		specialBuildings = new ArrayList<>();
 		if(aWood >=0) this.stoneCost = aStone;
 		else System.out.println("Building : Constructor : wrong value for stoneCost");
 
@@ -34,6 +40,9 @@ public class Building extends Card {
 
 		if(aCoinReward >=0) this.coinReward = aCoinReward;
 		else System.out.println("Building : Constructor : wrong value for coinReward");
+
+		if(victoryPoints >= 0) this.victoryPoints = victoryPoints;
+		else System.out.println("Building : Constructor : Wrong value for victoryPoints");
 	}
 
 	/**
@@ -41,6 +50,24 @@ public class Building extends Card {
 	 * @return : true if the building is finished, false if not
 	 */
 	public boolean isFinished() {
+		int nbWoodFromWorker = 0;
+		int nbStoneFromWorker = 0;
+		int nbTileFromWorker = 0;
+		int nbKnowledgeFromWorker = 0;
+		for(Worker w : workers){
+			nbWoodFromWorker += w.getWood();
+			nbKnowledgeFromWorker += w.getKnowledge();
+			nbStoneFromWorker =+ w.getStone();
+			nbTileFromWorker += w.getTile();
+		}
+		for(SpecialBuilding s : specialBuildings){
+			nbWoodFromWorker += s.getWoodProduced();
+			nbKnowledgeFromWorker += s.getKnowledgeProduced();
+			nbStoneFromWorker =+ s.getStoneProduced();
+			nbTileFromWorker += s.getTileProduced();
+		}
+		if(nbKnowledgeFromWorker >= knowledgeCost && nbStoneFromWorker >= stoneCost && nbTileFromWorker >= tileCost && nbWoodFromWorker >= woodCost) this.isFinished = true;
+		else this.isFinished = false;
 		return isFinished;
 	}
 
@@ -104,6 +131,9 @@ public class Building extends Card {
 		else System.out.println("Building : setWoodCost : wrong value");
 	}
 
+	public int getVictoryPoints(){
+		return this.victoryPoints;
+	}
 	/**
 	 * Gets the Tile cost
 	 * @return : the tile cost
@@ -137,4 +167,43 @@ public class Building extends Card {
 		if(knowledgeCost >= 0)this.knowledgeCost = knowledgeCost;
 		else System.out.println("Building : setKnowledgeCost : wrong value");
 	}
+
+	/**
+	 * Add a worker to the construction site
+	 * @param w : the worker that has to be added
+	 */
+	public void addWorker(Worker w){
+		if(w != null) this.workers.add(w);
+		else System.out.println("Building : addWorker : The worker is missing");
+	}
+
+	public void addSpecialBuilding(SpecialBuilding s){
+		if(s != null ) this.specialBuildings.add(s);
+		else System.out.println("Building : addSpecialBuilding : ");
+
+	}
+
+	@Override
+	public String toString() {
+		String ret = String.format("------------------------------\n" +
+								   "	 Name : %s				\n" +
+								   "	 CoinReward : %s				\n" +
+								   "	 StoneCost : %s			\n" +
+								   "	 WoodCost : %s				\n" +
+								   "	 TileCost : %s				\n" +
+								   "	 KnowledgeCost : %s 		\n" +
+								   "------------------------------\n",
+				super.getName(),
+				this.coinReward,
+				this.stoneCost,
+				this.woodCost,
+				this.tileCost,
+				this.knowledgeCost);
+		return ret;
+	}
+
+	public int nbWorkers(){
+		return this.workers.size()+this.specialBuildings.size()-1;
+	}
+
 }

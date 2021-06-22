@@ -1,5 +1,7 @@
 package test;
 
+import model.Board;
+import model.Game;
 import org.junit.*;
 import static org.junit.Assert.*;
 import model.AutoPlayer;
@@ -10,7 +12,7 @@ public class AutoPLayerTest {
 
     @Before
     public void setUp(){
-        autoPlayer = new AutoPlayer("Antoine");
+        autoPlayer = new AutoPlayer("Antoine",new Board("","",""),null);
     }
 
     @After

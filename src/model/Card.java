@@ -1,6 +1,8 @@
 package model;
 
-public abstract class Card {
+import java.io.Serializable;
+
+public abstract class Card implements Serializable {
 
 	private String face;
 	private String name;
@@ -28,5 +30,7 @@ public abstract class Card {
 		return "toString of Card";
 	}
 
-
+	public String getName(){
+		return this.name;
+	}
 }

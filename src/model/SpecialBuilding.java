@@ -13,14 +13,13 @@ public class SpecialBuilding extends Building {
 	 * @param aTile : The Special building's tile cost
 	 * @param aWood : The Special building's wood cost
 	 * @param aKnowledge : The Special building's knowledge cost
-	 * @param aCoinReward : The Special building's coin reward amount
 	 * @param aStoneProduced : The Special building's produced stone amount
 	 * @param aTileProduced : The Special building's produced tile amount
-	 * @param aWoodProduced : The Special building's produced wood amounnt
+	 * @param aWoodProduced : The Special building's produced wood amount
 	 * @param aKnowledgeProduced : The Special building's produced knowledge amount
 	 */
-	public SpecialBuilding(String aName, int aStone, int aTile, int aWood, int aKnowledge, int aCoinReward, int aStoneProduced, int aTileProduced, int aWoodProduced, int aKnowledgeProduced) {
-		super(aName,aStone,aTile,aWood,aKnowledge,aCoinReward);
+	public SpecialBuilding(String aName, int aStone,int aWood,int aKnowledge, int aTile, int aVictoryPoints, int aStoneProduced, int aWoodProduced, int aKnowledgeProduced,int aTileProduced ) {
+		super(aName,0,aVictoryPoints,aStone,aWood,aTile,aKnowledge);
 		if(aStoneProduced >=0) this.stoneProduced = aStoneProduced;
 		else System.out.println("SpecialBuilding : Constructor : wrong value for stoneProduced");
 
@@ -100,5 +99,20 @@ public class SpecialBuilding extends Building {
 	public void setKnowledgeProduced(int value) {
 		if(value >= 0) this.knowledgeProduced = value;
 		else System.out.println("SpecialBuilding : setKnowledgeProduced : wrong value");
+	}
+
+	@Override
+	public String toString() {
+		return	"name = "+super.getName()+
+				"coinReward=" + super.getCoinReward() +
+				"\nstoneCost=" + super.getStoneCost() +
+				"\nwoodCost=" + super.getWoodCost() +
+				"\ntileCost=" + super.getTileCost() +
+				"\nknowledgeCost=" + super.getKnowledgeCost() +
+				"\nisFinished=" + super.isFinished()+
+				"\nstoneProduced=" + stoneProduced +
+				"\ntileProduced=" + tileProduced +
+				"\nwoodProduced=" + woodProduced +
+				"\nknowledgeProduced=" + knowledgeProduced;
 	}
 }

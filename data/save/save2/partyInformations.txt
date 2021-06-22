@@ -1,0 +1,6 @@
+Name : Simon
+CoinAmount : 10
+Number of workers : 1
+Name : Antoine
+CoinAmount : 10
+Number of workers : 1
