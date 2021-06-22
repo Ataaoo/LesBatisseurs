@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="90c70139-1372-4ff7-9c79-ae7607df4540" name="Default Changelist" comment="Add the data files">
+      <change afterPath="$PROJECT_DIR$/data/save/save1/Game.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/save/save1/partyInformations.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/save/save2/Game.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/save/save2/partyInformations.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/save/save3/Game.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Launch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data/batiments.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/rowData/batiments.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data/machines.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/rowData/machines.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data/ouvriers.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/rowData/ouvriers.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/AutoPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AutoPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Building.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ConfigGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ConfigGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/HumanPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/SpecialBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/SpecialBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/AutoPLayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/AutoPLayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/BuildingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/BuildingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/ConfigGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/ConfigGameTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1u21Dtc0IcUYMwsWFbRXkDLMD1W" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Launch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Launch" />
+      <module name="LesBatisseurs" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Launch" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="90c70139-1372-4ff7-9c79-ae7607df4540" name="Default Changelist" comment="" />
+      <created>1623848755115</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623848755115</updated>
+      <workItem from="1623848757865" duration="849000" />
+      <workItem from="1623849686926" duration="3969000" />
+      <workItem from="1623945812725" duration="4560000" />
+      <workItem from="1624005304543" duration="7745000" />
+      <workItem from="1624020095620" duration="7205000" />
+      <workItem from="1624047325967" duration="4613000" />
+      <workItem from="1624093648105" duration="19045000" />
+      <workItem from="1624186613575" duration="1163000" />
+      <workItem from="1624190679968" duration="10420000" />
+      <workItem from="1624226552427" duration="1149000" />
+      <workItem from="1624270216627" duration="599000" />
+      <workItem from="1624280406595" duration="21813000" />
+      <workItem from="1624350705188" duration="3674000" />
+      <workItem from="1624365719169" duration="2891000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add the data files">
+      <created>1624007563523</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1624007563523</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Add the data files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add the data files" />
+  </component>
+</project>
